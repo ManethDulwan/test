@@ -9,7 +9,8 @@ export default function App() {
       const { results } = await res.json();
       setData(results);
     };
-
+    fetchData();
+  }, []);
     var N = 3;
     var array = [];
     var mat = [[1, 2, 3],
@@ -31,8 +32,7 @@ export default function App() {
     }
     console.log(output);
 
-    fetchData();
-  }, []);
+    
   const handlemale = () => {
     const fetchData = async () => {
       const res = await fetch('https://randomuser.me/api/?results=1?&&gender=male&&nat=CA');
@@ -68,7 +68,7 @@ export default function App() {
                     onClick={hamdlefemale}>
                       Female
                     </button>
-                   <img class="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800 mx-auto my-4"
+                   <img class="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800 mx-auto my-4" unoptimized
                       src={item.picture.large} alt="" />
                     <div class="py-2">
                       <h3 class="font-bold text-2xl text-gray-800 dark:text-white mb-1">{item.name.title + "." + item.name.first + "  " + item.name.last}</h3>
